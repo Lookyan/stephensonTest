@@ -9,6 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property string $a_text
+ * @property integer $effect
  *
  * @property Result[] $results
  */
@@ -28,7 +29,8 @@ class Answer extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['a_text'], 'required'],
+            [['a_text', 'effect'], 'required'],
+            [['effect'], 'integer'],
             [['a_text'], 'string', 'max' => 30]
         ];
     }
@@ -41,6 +43,7 @@ class Answer extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'a_text' => 'A Text',
+            'effect' => 'Effect',
         ];
     }
 
